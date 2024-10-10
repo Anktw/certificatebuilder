@@ -4,7 +4,7 @@ import path from 'path';
 
 export async function POST(req) {
   try {
-    const certificateData = await req.json(); // Get certificate data from request body
+    const certificateData = await req.json();
 
     // Define the file path for 'verify.json'
     const filePath = path.join(process.cwd(), 'public', 'verify.json');

@@ -7,18 +7,19 @@
     "startDate": "01-09-2024"
   },
   {
-    "id": "DEF456",
-    "name": "Jane Smith",
-    "skill": "React",
-    "weeks": 6,
-    "startDate": "15-08-2024"
+    "id": "PO2HCD",
+    "name": "Ankit Tiwari",
+    "skill": "JavaScript",
+    "weeks": "5",
+    "startDate": "2024-06-12",
+    "completionDate": "17-07-2024"
   },
   {
-    "id": "FEY5NY",
-    "name": "Ved prakash",
-    "skill": "JavaScript",
-    "weeks": "7",
-    "startDate": "2024-06-12",
-    "completionDate": "31-07-2024"
+    "id": "63479G",
+    "name": "Ved Prakash",
+    "skill": "Java",
+    "weeks": "4",
+    "startDate": "06-10-2024",
+    "completionDate": "08-07-2024"
   }
 ]

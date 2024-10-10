@@ -51,42 +51,85 @@ const CertificatePreview = ({ name, skill, weeks, startDate }) => {
       startDate,
       completionDate: calculateCompletionDate(startDate, weeks),
     };
-
+  
     // Save the certificate data to JSON
     const message = await saveCertificate(certificateData);
-    alert(message);  // Show alert on successful save
-
+    alert(message); // Show alert on successful save
+  
     // Generate the certificate as a PDF
     const certificateElement = document.querySelector(".certificate");
-    html2canvas(certificateElement).then((canvas) => {
+  
+    // Adjust canvas scale and ensure PDF dimensions match the canvas
+    html2canvas(certificateElement, { scale: 2 }).then((canvas) => {
       const imgData = canvas.toDataURL("image/png");
-      const pdf = new jsPDF();
-      pdf.addImage(imgData, "PNG", 0, 0);
+      const pdf = new jsPDF({
+        orientation: "portrait",
+        unit: "pt",
+        format: [canvas.width, canvas.height], // Match PDF size to canvas
+      });
+      pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
       pdf.save("certificate.pdf");
     });
   };
+  
 
   if (!name || !skill || !weeks || !startDate || !certificateID) return null; // Wait for certificateID
 
   return (
     <div className="mt-6">
       {/* Certificate Preview */}
-      <div className="certificate shadow-lg p-8 rounded">
-        <h1 className="text-center font-bold text-3xl mb-4">Certificate of Completion</h1>
-        <p className="text-center text-lg">
-          This certifies that <strong>{name}</strong> has successfully completed{" "}
-          <strong>{weeks}</strong> weeks of <strong>{skill}</strong>.
-        </p>
-        <p className="text-center mt-2">
+      <div className="relative bg-white text-black p-10 border-4 border-black certificate">
+  <div className="bg-black text-white py-6 flex justify-center items-center w-full absolute top-0 left-0">
+    <img
+      alt="vercel-logotype Logo"
+      loading="eager"
+      width="120"
+      height="30"
+      decoding="async"
+      data-nimg="1"
+      className="geist-hide-on-light"
+      src="https://www.vercel.com/mktng/_next/static/media/vercel-logotype-dark.e8c0a742.svg"
+    />
+  </div>
+
+  <div className="text-center mt-20">
+    <p className="mb-4 font-mono text-lg">This certifies that</p>
+    <h2 className="text-5xl font-bold mb-4">{name}</h2>
+    <p className="mb-4 font-mono text-lg">
+      has successfully completed the
+      <br /> Open Intern Program sponsored by Vercel
+    </p>
+    <h3 className="text-3xl font-bold mb-4">{skill}</h3>
+    <p className="mb-6 font-bold font-serif text-lg">
+      Developer Certification,
+      <br /> representing approximately {weeks * 40} hours of coursework
+    </p>
+
+    <div className="flex flex-row justify-between mx-10 items-center">
+      <div className="mt-8 mb-6 text-center">
+        <img src="/image.png" alt="Signature" className="mx-auto h-12" />
+        <p className="mt-2 font-bold">Guillermo Rauch</p>
+        <p className="font-mono">CEO of Vercel</p>
+      </div>
+
+      <div className="text-left">
+        <p className="font-sans text-black text-lg">
           Started on: <strong>{startDate}</strong>
         </p>
-        <p className="text-center mt-2">
-          Date of Completion: <strong>{calculateCompletionDate(startDate, weeks)}</strong>
+        <p className="font-sans text-black text-lg">
+          Issued on: <strong>{calculateCompletionDate(startDate, weeks)}</strong>
         </p>
-        <p className="text-center mt-2">
-          Verify this certification at /verify/{certificateID}
+        <p className="font-sans text-black text-lg">
+          Certificate ID: <strong>{certificateID}</strong>
         </p>
       </div>
+    </div>
+
+    <p className="text-sm font-serif mt-6">
+      Verify this certification at https://openintern.vercel.app/verify/{certificateID}
+    </p>
+  </div>
+</div>
 
       {/* Button to Download the Certificate */}
       <div className="flex justify-center mt-4">
