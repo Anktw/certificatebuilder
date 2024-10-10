@@ -10,12 +10,12 @@ const fetchCertificates = async () => {
 };
 
 export default function CertificatePage({ params }) {
-  const { id } = params; // Extract the certificate ID from the URL
+  const { id } = params;
   const [certificate, setCertificate] = useState(null);
   const [error, setError] = useState("");
 
   useEffect(() => {
-    // Fetch certificates and find the one with the matching ID
+
     fetchCertificates()
       .then((certificates) => {
         const foundCert = certificates.find((cert) => cert.id === id.toUpperCase());

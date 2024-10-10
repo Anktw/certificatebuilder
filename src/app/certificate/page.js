@@ -9,7 +9,6 @@ const CertificatePage = () => {
   const [weeks, setWeeks] = useState("");
   const [startDate, setStartDate] = useState("");
   
-  // State to handle certificate generation
   const [showCertificate, setShowCertificate] = useState(false);
 
   const skillsList = [
@@ -35,7 +34,7 @@ const CertificatePage = () => {
   return (
     <div className="max-w-3xl mx-auto p-6 items-center bg-background shadow-lg rounded-lg text-gray-100">
       <h1 className="text-3xl font-bold mb-6 text-center">
-        Generate Your Certificate
+        Generate Kar lo bsdwalon
       </h1>
       <form className="space-y-6">
         {/* Name Input */}
