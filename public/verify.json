@@ -1,0 +1,24 @@
+[
+  {
+    "id": "ABC123",
+    "name": "John Doe",
+    "skill": "JavaScript",
+    "weeks": 4,
+    "startDate": "01-09-2024"
+  },
+  {
+    "id": "DEF456",
+    "name": "Jane Smith",
+    "skill": "React",
+    "weeks": 6,
+    "startDate": "15-08-2024"
+  },
+  {
+    "id": "FEY5NY",
+    "name": "Ved prakash",
+    "skill": "JavaScript",
+    "weeks": "7",
+    "startDate": "2024-06-12",
+    "completionDate": "31-07-2024"
+  }
+]

@@ -1,22 +1,33 @@
-import fs from "fs";
-import path from "path";
+import { NextResponse } from 'next/server';
+import fs from 'fs';
+import path from 'path';
 
-export default function handler(req, res) {
-  if (req.method === "POST") {
-    const certificateData = req.body;
+export async function POST(req) {
+  try {
+    const certificateData = await req.json(); // Get certificate data from request body
 
-    // Path to the JSON file where certificate data is stored
-    const filePath = path.join(process.cwd(), "data", "certificates.json");
-    const certificates = JSON.parse(fs.readFileSync(filePath, "utf8"));
+    // Define the file path for 'verify.json'
+    const filePath = path.join(process.cwd(), 'public', 'verify.json');
 
-    // Add new certificate to the list
+    // Read the existing certificate data from the file
+    let certificates = [];
+    if (fs.existsSync(filePath)) {
+      const fileContent = fs.readFileSync(filePath, 'utf-8');
+      certificates = JSON.parse(fileContent);
+    }
+
+    // Add the new certificate data
     certificates.push(certificateData);
 
-    // Save the updated list back to the JSON file
+    // Write the updated certificate data back to the file
     fs.writeFileSync(filePath, JSON.stringify(certificates, null, 2));
 
-    res.status(200).json({ message: "Certificate saved successfully!" });
-  } else {
-    res.status(405).json({ message: "Method not allowed" });
+    // Return a success response
+    return NextResponse.json({ message: 'Certificate saved successfully!' }, { status: 200 });
+  } catch (error) {
+    console.error('Error saving certificate:', error);
+
+    // Return an error response
+    return NextResponse.json({ error: 'Failed to save certificate' }, { status: 500 });
   }
 }
