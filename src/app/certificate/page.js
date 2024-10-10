@@ -34,7 +34,7 @@ const CertificatePage = () => {
 
   return (
     <div className="max-w-3xl mx-auto p-6 items-center bg-background shadow-lg rounded-lg text-foreground">
-      <h1 className="text-3xl font-bold mb-6 text-center">
+      <h1 className="text-3xl md:text-5xl font-bold mb-6 text-center">
         Generate Kar lo Bsdwalon
       </h1>
       <form className="md:space-y-3">
