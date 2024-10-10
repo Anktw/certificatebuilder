@@ -15,7 +15,7 @@ export async function POST(req) {
     });
     await transporter.sendMail({
       from: email || 'no-reply@yourdomain.com',
-      to: 'at7922262@gmail.com',
+      to: 'at792226@gmail.com',
       subject: 'New Contact Message',
       text: `From: ${name || 'Anonymous'} \nEmail: ${email || 'Not provided'} \n\nMessage: ${message}`,
     });

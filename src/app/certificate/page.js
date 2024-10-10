@@ -113,7 +113,7 @@ const CertificatePage = () => {
       </div>
 
       {/* Certificate Preview with default values until generated */}
-      <div className="mt-5">
+      <div className="mt-5 flex justify-center px-4 mx-4">
       
         {showCertificate ? (
           <CertificatePreview 
@@ -138,5 +138,4 @@ const CertificatePage = () => {
     </div>
   );
 };
-
 export default CertificatePage;

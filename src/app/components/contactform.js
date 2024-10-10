@@ -91,8 +91,8 @@ export default function ContactForm() {
           disabled={status === "Sending..."}
           className={` p-2 rounded-full transition group ${
             status === "Sending..."
-              ? "bg-background cursor-not-allowed"
-              : "bg-background hover:bg-foreground hover:text-background text-foreground rounded border-2"
+              ? "cursor-not-allowed"
+              : "text-foreground rounded border-2"
           }`}
         >
           {status === "Sending..." ? (
@@ -107,9 +107,10 @@ export default function ContactForm() {
                 height="24px"
                 viewBox="0 -960 960 960"
                 width="24px"
-                className={`transform transition-transform duration-500 group-hover:translate-x-1 group-hover:scale-105 mx-1`}
+                fill="currentColor"
+                className={` transform transition-transform duration-500 group-hover:translate-x-1 group-hover:scale-105 mx-1 fill-black`}
               >
-                <path d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z" />
+                <path d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z" fill="white"  />
               </svg>
             </span>
           )}
