@@ -100,7 +100,6 @@ const CertificatePage = () => {
   </div></div>
       </form>
 
-      {/* Button to Generate Certificate */}
       <div className="flex justify-center ">
         <button
           onClick={handleGenerate}
@@ -109,8 +108,6 @@ const CertificatePage = () => {
           Generate Certificate
         </button>
       </div>
-
-      {/* Certificate Preview with default values until generated */}
       <div className="mt-5 flex justify-center px-4 mx-4">
   {showCertificate ? (
     <div className="certificate-preview-container px-4">
