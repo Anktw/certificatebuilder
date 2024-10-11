@@ -1,51 +1,37 @@
-"use client";
 import { kv } from '@vercel/kv';
 import CertificatePreview from "@/app/components/CertificatePreview";
-import { useEffect, useState } from 'react';
 
-export default function CertificatePage({ params }) {
+export default async function CertificatePage({ params }) {
+  // Capture the ID from params
   const { id } = params;
-  const [certificate, setCertificate] = useState(null);
-  const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchCertificate = async () => {
-      try {
-        const cert = await kv.get(`certificate:${id.toUpperCase()}`);
-        if (!cert) {
-          setCertificate(null);
-        } else {
-          setCertificate(cert);
-        }
-      } catch (err) {
-        setError(err.message);
-      }
-    };
+  try {
+    // Fetch the certificate using the exact ID from the route params
+    const certificate = await kv.get(`certificate:${id.toUpperCase()}`);
+    
+    // If certificate is not found, return not found message
+    if (!certificate) {
+      return (
+        <div className="font-bold h-screen text-4xl flex justify-center align-middle items-center">
+          <h1 className="p-5">Certificate not found</h1>
+          <span>
+            {/* Icon */}
+          </span>
+        </div>
+      );
+    }
 
-    fetchCertificate();
-  }, [id]);
-
-  if (error) {
-    return <div>Error fetching certificate: {error}</div>;
-  }
-
-  if (!certificate) {
+    // Pass the fetched certificate details to the preview component
     return (
-      <div className="font-bold h-screen text-4xl flex justify-center align-middle items-center">
-        <h1 className="p-5">Certificate not found</h1>
-        <span>
-        <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e8eaed"><path d="M260-160q-91 0-155.5-63T40-377q0-78 47-139t123-78q25-92 100-149t170-57q117 0 198.5 81.5T760-520q69 8 114.5 59.5T920-340q0 75-52.5 127.5T740-160H260Zm0-80h480q42 0 71-29t29-71q0-42-29-71t-71-29h-60v-80q0-83-58.5-141.5T480-720q-83 0-141.5 58.5T280-520h-20q-58 0-99 41t-41 99q0 58 41 99t99 41Zm220-240Zm0 160q17 0 28.5-11.5T520-360q0-17-11.5-28.5T480-400q-17 0-28.5 11.5T440-360q0 17 11.5 28.5T480-320Zm-40-140h80v-180h-80v180Z"/></svg>
-        </span>
-      </div>
+      <CertificatePreview
+        name={certificate.name}
+        skill={certificate.skill}
+        weeks={certificate.weeks}
+        startDate={certificate.startDate}
+      />
     );
+  } catch (error) {
+    // Handle fetch error
+    return <div>Error fetching certificate: {error.message}</div>;
   }
-
-  return (
-    <CertificatePreview
-      name={certificate.name}
-      skill={certificate.skill}
-      weeks={certificate.weeks}
-      startDate={certificate.startDate}
-    />
-  );
 }
