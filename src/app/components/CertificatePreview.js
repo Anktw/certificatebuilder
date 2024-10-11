@@ -32,6 +32,7 @@ const CertificatePreview = ({ name, skill, weeks, startDate }) => {
       },
       body: JSON.stringify(certificateData),
     });
+  
     const result = await response.json();
     return result.message;
   };

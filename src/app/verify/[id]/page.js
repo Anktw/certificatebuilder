@@ -1,44 +1,25 @@
-"use client";
-import { useEffect, useState } from "react";
+import { kv } from '@vercel/kv';
 import CertificatePreview from "@/app/components/CertificatePreview";
 
-// Fetch certificate data from JSON file
-const fetchCertificates = async () => {
-  const res = await fetch("/verify.json");
-  const certificates = await res.json();
-  return certificates;
-};
-
-export default function CertificatePage({ params }) {
+export default async function CertificatePage({ params }) {
   const { id } = params;
-  const [certificate, setCertificate] = useState(null);
-  const [error, setError] = useState("");
 
-  useEffect(() => {
+  try {
+    const certificate = await kv.get(`certificate:${id.toUpperCase()}`);
 
-    fetchCertificates()
-      .then((certificates) => {
-        const foundCert = certificates.find((cert) => cert.id === id.toUpperCase());
-        if (foundCert) {
-          setCertificate(foundCert);
-        } else {
-          setError("Certificate not found");
-        }
-      })
-      .catch((err) => {
-        setError("Error fetching certificates");
-      });
-  }, [id]);
+    if (!certificate) {
+      return <div>Certificate not found</div>;
+    }
 
-  if (error) return <div>{error}</div>;
-  if (!certificate) return <div>Loading...</div>;
-
-  return (
-    <CertificatePreview
-      name={certificate.name}
-      skill={certificate.skill}
-      weeks={certificate.weeks}
-      startDate={certificate.startDate}
-    />
-  );
+    return (
+      <CertificatePreview
+        name={certificate.name}
+        skill={certificate.skill}
+        weeks={certificate.weeks}
+        startDate={certificate.startDate}
+      />
+    );
+  } catch (error) {
+    return <div>Error fetching certificate: {error.message}</div>;
+  }
 }
