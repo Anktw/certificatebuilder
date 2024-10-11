@@ -141,7 +141,7 @@ const CertificatePreview = ({ name, skill, weeks, startDate }) => {
           </p>
         </div>
       </div>
-
+        
       <div className="flex justify-center mt-4">
         <button
           onClick={downloadCertificate}
@@ -153,5 +153,4 @@ const CertificatePreview = ({ name, skill, weeks, startDate }) => {
     </div>
   );
 };
-
 export default CertificatePreview;

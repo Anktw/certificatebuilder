@@ -3,7 +3,6 @@ import { useState } from "react";
 import CertificatePreview from "../components/CertificatePreview";
 import Input from "../components/input";
 import ContactForm from "../components/contactform";
-
 const CertificatePage = () => {
   const [name, setName] = useState("");
   const [skill, setSkill] = useState("");
@@ -130,6 +129,8 @@ const CertificatePage = () => {
         weeks="4" 
         startDate="06-10-2024"
       />
+      <div className="flex justify-center mt-4">
+      </div>
     </div>
   )}
 </div>
