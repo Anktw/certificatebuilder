@@ -8,38 +8,108 @@ const CertificatePage = () => {
   const [skill, setSkill] = useState("");
   const [weeks, setWeeks] = useState("");
   const [startDate, setStartDate] = useState("");
-  
+
   const [showCertificate, setShowCertificate] = useState(false);
 
   const skillsList = [
-    "JavaScript", "Python", "Java", "C++", "C#", "Ruby", "Go", "Swift", "Kotlin", "PHP", 
-    "TypeScript", "Rust", "Scala", "R", "MATLAB", "Perl", "Objective-C", "Shell", "Haskell", 
-    "Lua", "Dart", "Elixir", "Groovy", "F#", "Visual Basic", "SQL", "NoSQL", "GraphQL", 
-    "HTML/CSS", "SASS/SCSS", "React.js", "Vue.js", "Angular", "Node.js", "Django", "Flask", 
-    "Spring Boot", "Express.js", "Ruby on Rails", "Laravel", "Bootstrap", "Tailwind CSS", 
-    "Next.js", "Gatsby", "WordPress", "Drupal", "Firebase", "AWS", "Google Cloud", "Azure", 
-    "DevOps", "Docker", "Kubernetes", "Web Development", "Frontend Development", 
-    "Backend Development", "Full Stack Development", "Full Stack MERN", "Full Stack MEAN", 
-    "Mobile App Development", "Data Science", "Machine Learning", "Artificial Intelligence", 
-    "Deep Learning", "Natural Language Processing", "Computer Vision", "Cybersecurity", 
-    "Cloud Computing", "Blockchain Development", "Game Development", "IoT (Internet of Things)", 
-    "Embedded Systems", "Software Testing", "DevOps Engineering", "UI/UX Design", "Data Engineering", 
-    "Database Administration", "Agile Methodologies", "Project Management"
+    "JavaScript",
+    "Python",
+    "Java",
+    "C++",
+    "C#",
+    "Ruby",
+    "Go",
+    "Swift",
+    "Kotlin",
+    "PHP",
+    "TypeScript",
+    "Rust",
+    "Scala",
+    "R",
+    "MATLAB",
+    "Perl",
+    "Objective-C",
+    "Shell",
+    "Haskell",
+    "Lua",
+    "Dart",
+    "Elixir",
+    "Groovy",
+    "F#",
+    "Visual Basic",
+    "SQL",
+    "NoSQL",
+    "GraphQL",
+    "HTML/CSS",
+    "SASS/SCSS",
+    "React.js",
+    "Vue.js",
+    "Angular",
+    "Node.js",
+    "Django",
+    "Flask",
+    "Spring Boot",
+    "Express.js",
+    "Ruby on Rails",
+    "Laravel",
+    "Bootstrap",
+    "Tailwind CSS",
+    "Next.js",
+    "Gatsby",
+    "WordPress",
+    "Drupal",
+    "Firebase",
+    "AWS",
+    "Google Cloud",
+    "Azure",
+    "DevOps",
+    "Docker",
+    "Kubernetes",
+    "Web Development",
+    "Frontend Development",
+    "Backend Development",
+    "Full Stack Development",
+    "Full Stack MERN",
+    "Full Stack MEAN",
+    "Mobile App Development",
+    "Data Science",
+    "Machine Learning",
+    "Artificial Intelligence",
+    "Deep Learning",
+    "Natural Language Processing",
+    "Computer Vision",
+    "Cybersecurity",
+    "Cloud Computing",
+    "Blockchain Development",
+    "Game Development",
+    "IoT (Internet of Things)",
+    "Embedded Systems",
+    "Software Testing",
+    "DevOps Engineering",
+    "UI/UX Design",
+    "Data Engineering",
+    "Database Administration",
+    "Agile Methodologies",
+    "Project Management",
   ];
 
   const handleGenerate = () => {
     setShowCertificate(true);
   };
-  
+
   return (
     <div className="max-w-3xl mx-auto p-6 items-center bg-background shadow-lg rounded-lg text-foreground">
       <h1 className="text-3xl md:text-5xl font-bold mb-6 text-center">
         Generate Kar lo Bsdwalon
-      </h1>
-      <form className="space-y-0 md:space-y-3 p-10 md:p-0">
+      </h1><p className="font-medium py-3 md:py-6 border p-4 m-3 rounded-3xl"><span className="text-2xl pr-4 font-serif">Disclaimer -</span>Due to a busy schedule, this site’s CSS is currently not optimized for screens smaller than 768px. For the best experience, I recommend using a desktop screen.
 
+If you’d like to contribute, please fill out the contact form at the end of the page.
+
+Please consider that this site is made for<span className="text-xl font-bold"> fun purpose </span> only. I strongly encourage you to pursue legitimate qualification, its not that hard. If you cannot do so, I urge you to reconsider your life's path (just kidding).
+      </p>
+      <form className="space-y-0 md:space-y-3 p-10 md:p-0">
         <label className="block text-sm font-bold" htmlFor="Name">
-            Name?
+          Name?
         </label>
         <Input
           value={name}
@@ -58,7 +128,9 @@ const CertificatePage = () => {
             className="w-full border border-foreground rounded-xl py-4 px-4 bg-background focus:outline-none focus:border-gray-400 transition-all mb-6"
             required
           >
-            <option value="" disabled>Select a Skill or Language</option>
+            <option value="" disabled>
+              Select a Skill or Language
+            </option>
             {skillsList.map((item, index) => (
               <option key={index} value={item}>
                 {item}
@@ -73,33 +145,33 @@ const CertificatePage = () => {
           label="No of Weeks?"
           type="number"
         />
-<div className="relative">
-     
-        <Input
-          value={startDate}
-          onChange={(e) => setStartDate(e.target.value)}
-          label="Start Date"
-          type="date"
-        />
-        <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-    <svg
-      className="h-5 w-5 text-foreground"
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-        d="M8 7V3m8 4V3m-9 8h10m2 5a2 2 0 01-2 2H7a2 2 0 01-2-2V7a2 2 0 012-2h10a2 2 0 012 2z"
-      />
-    </svg>
-  </div></div>
+        <div className="relative">
+          <Input
+            value={startDate}
+            onChange={(e) => setStartDate(e.target.value)}
+            label="Start Date"
+            type="date"
+          />
+          <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+            <svg
+              className="h-5 w-5 text-foreground"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M8 7V3m8 4V3m-9 8h10m2 5a2 2 0 01-2 2H7a2 2 0 01-2-2V7a2 2 0 012-2h10a2 2 0 012 2z"
+              />
+            </svg>
+          </div>
+        </div>
       </form>
 
-      <div className="flex justify-center ">
+      <div className="flex justify-center">
         <button
           onClick={handleGenerate}
           className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
@@ -107,33 +179,33 @@ const CertificatePage = () => {
           Generate Certificate
         </button>
       </div>
+      <div></div>
       <div className="mt-5 flex justify-center px-4 mx-4">
-  {showCertificate ? (
-    <div className="certificate-preview-container px-4">
-      <CertificatePreview 
-        name={name || "Ved Prakash"} 
-        skill={skill || "Java"} 
-        weeks={weeks || "4"} 
-        startDate={startDate || "06-10-2024"} 
-      />
-    </div>
-  ) : (
-    <div className="certificate-preview-container px-4">
-      <CertificatePreview 
-        name="Ved Prakash" 
-        skill="Java" 
-        weeks="4" 
-        startDate="06-10-2024"
-      />
-      <div className="flex justify-center mt-4">
+        {showCertificate ? (
+          <div className="certificate-preview-container px-4">
+            <CertificatePreview
+              name={name || "Ved Prakash"}
+              skill={skill || "Java"}
+              weeks={weeks || "4"}
+              startDate={startDate || "06-10-2024"}
+            />
+          </div>
+        ) : (
+          <div className="certificate-preview-container px-4">
+            <CertificatePreview
+              name="Ved Prakash"
+              skill="Java"
+              weeks="4"
+              startDate="06-10-2024"
+            />
+            <div className="flex justify-center mt-4"></div>
+          </div>
+        )}
       </div>
-    </div>
-  )}
-</div>
       <h1 className="mt-8 text-3xl font-bold mb-6 text-center">
         Suggestions? Bugs? Contact me
       </h1>
-      <ContactForm/>
+      <ContactForm />
     </div>
   );
 };

@@ -22,34 +22,9 @@ body {
 .custom-scrollbar::-webkit-scrollbar {
   display: none; 
 }
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
-@media screen {
-  .certificate-container {
-    padding: 20px;
-    font-size: 16px;
-    max-width: 100%;
-    display: block;
-    text-align: center;
-  }
-
-  @media (max-width: 768px) {
-    .certificate-container {
-      font-size: 14px;
-      padding: 10px;
-    }
-  }
-}
-
 @media print {
-  .certificate-container {
-    width: 100%;
-    font-size: 18px;
-    padding: 30px;
+  .certificate {
+    width: 1122px;
+    height: 615px;
   }
 }

@@ -40,7 +40,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="max-w-md mx-auto p-8 ">
+    <div className="max-w-md mx-auto p-8 border rounded-3xl">
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name" className="block">
