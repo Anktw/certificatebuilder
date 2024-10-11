@@ -101,11 +101,17 @@ const CertificatePage = () => {
     <div className="max-w-3xl mx-auto p-6 items-center bg-background shadow-lg rounded-lg text-foreground">
       <h1 className="text-3xl md:text-5xl font-bold mb-6 text-center">
         Generate Kar lo Bsdwalon
-      </h1><p className="font-medium py-3 md:py-6 border p-4 m-3 rounded-3xl"><span className="text-2xl pr-4 font-serif">Disclaimer -</span>Due to a busy schedule, this site's CSS is currently not optimized for screens smaller than 768px. For the best experience, I recommend using a desktop screen.
-
-If you'd like to contribute, please fill out the contact form at the end of the page.
-
-Please consider that this site is made for<span className="text-xl font-bold"> fun purpose </span> only. I strongly encourage you to pursue legitimate qualification, its not that hard. If you cannot do so, I urge you to reconsider your life's path (just kidding).
+      </h1>
+      <p className="font-medium py-3 md:py-6 border p-4 m-3 rounded-3xl">
+        <span className="text-2xl pr-4 font-serif">Disclaimer -</span>Due to a
+        busy schedule, this site&apos;s CSS is currently not optimized for
+        screens smaller than 768px. For the best experience, I recommend using a
+        desktop screen. If you&apos;d like to contribute, please fill out the
+        contact form at the end of the page. Please consider that this site is
+        made for<span className="text-xl font-bold"> fun purpose </span> only. I
+        strongly encourage you to pursue legitimate qualification, its not that
+        hard. If you cannot do so, I urge you to reconsider your life&apos;s
+        path (just kidding).
       </p>
       <form className="space-y-0 md:space-y-3 p-10 md:p-0">
         <label className="block text-sm font-bold" htmlFor="Name">
