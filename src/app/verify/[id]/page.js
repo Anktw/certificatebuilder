@@ -8,8 +8,8 @@ export default async function CertificatePage({ params }) {
     const certificate = await kv.get(`certificate:${id.toUpperCase()}`);
 
     if (!certificate) {
-      return <div>Certificate not found</div>;
-    }
+      return <div clasName="font-bold text-4xl flex justify-center -translate-x-50 -translate-y-50">Certificate not found</div>;
+    ;}
 
     return (
       <CertificatePreview
