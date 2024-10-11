@@ -25,16 +25,17 @@ const CertificatePreview = ({ name, skill, weeks, startDate }) => {
   };
 
   const saveCertificate = async (certificateData) => {
+    console.log('Saving Certificate Data:', certificateData);
     const response = await fetch("/api/saveCertificate", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(certificateData),
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(certificateData),
     });
     const result = await response.json();
     return result.message;
-  };
+};
 
   const downloadCertificate = async () => {
     const certificateData = {
