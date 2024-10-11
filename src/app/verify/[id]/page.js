@@ -1,9 +1,11 @@
 import { MongoClient } from 'mongodb';
-import CertificatePreview from '@/app/components/CertificatePreview';
+import VerifiedCertificatePreview from '@/app/components/VerifiedCertificatePreview';
 import dotenv from 'dotenv';
+
 dotenv.config();
 const uri = process.env.MONGODB_URI;
 const dbName = process.env.MONGODB_DB;
+
 export async function getCertificate(id) {
   const client = new MongoClient(uri);
   try {
@@ -37,13 +39,15 @@ export default async function CertificatePage({ params }) {
       );
     }
     return (
-      <CertificatePreview
+      <div className='justify-center flex '>
+      <VerifiedCertificatePreview
         name={certificate.name}
         skill={certificate.skill}
         weeks={certificate.weeks}
         startDate={certificate.startDate}
         certificateID={id.toUpperCase()}
       />
+      </div>
     );
   } catch (error) {
     return <div>Error fetching certificate: {error.message}</div>;

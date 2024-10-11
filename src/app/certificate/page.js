@@ -30,13 +30,14 @@ const CertificatePage = () => {
   const handleGenerate = () => {
     setShowCertificate(true);
   };
+  
   return (
     <div className="max-w-3xl mx-auto p-6 items-center bg-background shadow-lg rounded-lg text-foreground">
       <h1 className="text-3xl md:text-5xl font-bold mb-6 text-center">
         Generate Kar lo Bsdwalon
       </h1>
       <form className="space-y-0 md:space-y-3 p-10 md:p-0">
-        {/* Name Input */}
+
         <label className="block text-sm font-bold" htmlFor="Name">
             Name?
         </label>
@@ -46,7 +47,6 @@ const CertificatePage = () => {
           label="E.g. Ved Prakash"
         />
 
-        {/* Skill Select */}
         <div className="relative">
           <label className="block text-sm font-bold" htmlFor="skill">
             Skills/Language
@@ -67,7 +67,6 @@ const CertificatePage = () => {
           </select>
         </div>
 
-        {/* Weeks of Completion */}
         <Input
           value={weeks}
           onChange={(e) => setWeeks(e.target.value)}
@@ -75,7 +74,7 @@ const CertificatePage = () => {
           type="number"
         />
 <div className="relative">
-        {/* Start Date */}
+     
         <Input
           value={startDate}
           onChange={(e) => setStartDate(e.target.value)}
