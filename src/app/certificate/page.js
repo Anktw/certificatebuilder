@@ -36,7 +36,7 @@ const CertificatePage = () => {
       <h1 className="text-3xl md:text-5xl font-bold mb-6 text-center">
         Generate Kar lo Bsdwalon
       </h1>
-      <form className="md:space-y-3">
+      <form className="md:space-y-3 p-10 md:px-0">
         {/* Name Input */}
         <label className="block text-sm font-bold" htmlFor="Name">
             Name?
@@ -112,24 +112,27 @@ const CertificatePage = () => {
       </div>
 
       {/* Certificate Preview with default values until generated */}
-      <div className="mt-5 flex justify-center px-96 md:px-4 mx-4">
-      
-        {showCertificate ? (
-          <CertificatePreview 
-            name={name || "Ved Prakash"} 
-            skill={skill || "Java"} 
-            weeks={weeks || "4"} 
-            startDate={startDate || "06-10-2024"} 
-          />
-        ) : (
-          <CertificatePreview 
-            name="Ved Prakash" 
-            skill="Java" 
-            weeks="4" 
-            startDate="06-10-2024"
-          />
-        )}
-      </div>
+      <div className="-mt-14 md:mt-5 flex justify-center scale-50 md:scale-100 px-4 mx-4">
+  {showCertificate ? (
+    <div className="certificate-preview-container px-4">
+      <CertificatePreview 
+        name={name || "Ved Prakash"} 
+        skill={skill || "Java"} 
+        weeks={weeks || "4"} 
+        startDate={startDate || "06-10-2024"} 
+      />
+    </div>
+  ) : (
+    <div className="certificate-preview-container px-4">
+      <CertificatePreview 
+        name="Ved Prakash" 
+        skill="Java" 
+        weeks="4" 
+        startDate="06-10-2024"
+      />
+    </div>
+  )}
+</div>
       <h1 className="mt-8 text-3xl font-bold mb-6 text-center">
         Suggestions? Bugs? Contact me
       </h1>
