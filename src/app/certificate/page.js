@@ -36,7 +36,7 @@ const CertificatePage = () => {
       <h1 className="text-3xl md:text-5xl font-bold mb-6 text-center">
         Generate Kar lo Bsdwalon
       </h1>
-      <form className="md:space-y-3 p-10 md:px-0">
+      <form className="space-y-0 md:space-y-3 p-10 md:p-0">
         {/* Name Input */}
         <label className="block text-sm font-bold" htmlFor="Name">
             Name?
@@ -56,7 +56,7 @@ const CertificatePage = () => {
             id="skill"
             value={skill}
             onChange={(e) => setSkill(e.target.value)}
-            className="w-full border border-foreground rounded-lg py-4 px-4 bg-background focus:outline-none focus:border-gray-400 transition-all mb-6"
+            className="w-full border border-foreground rounded-xl py-4 px-4 bg-background focus:outline-none focus:border-gray-400 transition-all mb-6"
             required
           >
             <option value="" disabled>Select a Skill or Language</option>
@@ -102,7 +102,7 @@ const CertificatePage = () => {
       </form>
 
       {/* Button to Generate Certificate */}
-      <div className="flex justify-center mt-4">
+      <div className="flex justify-center ">
         <button
           onClick={handleGenerate}
           className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
@@ -112,7 +112,7 @@ const CertificatePage = () => {
       </div>
 
       {/* Certificate Preview with default values until generated */}
-      <div className="-mt-14 md:mt-5 flex justify-center scale-50 md:scale-100 px-4 mx-4">
+      <div className="mt-5 flex justify-center px-4 mx-4">
   {showCertificate ? (
     <div className="certificate-preview-container px-4">
       <CertificatePreview 

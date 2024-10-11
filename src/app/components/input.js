@@ -29,7 +29,7 @@ const StyledWrapper = styled.div`
     border: solid 1.5px #9e9e9e;
     border-radius: 0.75rem;
     background: none;
-    padding: 1rem;
+    padding: .75rem;
     font-size: 1rem;
     color: #f5f5f5;
     width: 100%;
