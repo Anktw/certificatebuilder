@@ -31,7 +31,6 @@ const CertificatePage = () => {
   const handleGenerate = () => {
     setShowCertificate(true);
   };
-
   return (
     <div className="max-w-3xl mx-auto p-6 items-center bg-background shadow-lg rounded-lg text-foreground">
       <h1 className="text-3xl md:text-5xl font-bold mb-6 text-center">
@@ -113,7 +112,7 @@ const CertificatePage = () => {
       </div>
 
       {/* Certificate Preview with default values until generated */}
-      <div className="mt-5 flex justify-center px-4 mx-4">
+      <div className="mt-5 flex justify-center px-96 md:px-4 mx-4">
       
         {showCertificate ? (
           <CertificatePreview 
