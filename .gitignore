@@ -36,4 +36,5 @@ yarn-error.log*
 next-env.d.ts
 
 #
-**/getAll/page.js
+**/getAllCertificates/route.js
+**getCertificatefront/page.js
