@@ -181,9 +181,10 @@ const CertificatePage = () => {
         <button
           onClick={handleGenerate}
           className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
-        >
+        ><span className="flex gap-2">
           Generate Certificate
-        </button>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m480-420 240-160-240-160v320Zm28 220h224q-7 26-24 42t-44 20L228-85q-33 5-59.5-15.5T138-154L85-591q-4-33 16-59t53-30l46-6v80l-36 5 54 437 290-36Zm-148-80q-33 0-56.5-23.5T280-360v-440q0-33 23.5-56.5T360-880h440q33 0 56.5 23.5T880-800v440q0 33-23.5 56.5T800-280H360Zm0-80h440v-440H360v440Zm220-220ZM218-164Z"/></svg>
+          </span></button>
       </div>
       <div></div>
       <div className="mt-5 flex justify-center px-4 mx-4">
