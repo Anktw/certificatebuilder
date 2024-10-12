@@ -144,9 +144,11 @@ const CertificatePreview = ({ name, skill, weeks, startDate }) => {
       <div className="flex justify-center mt-4">
         <button
           onClick={downloadCertificate}
+         
           className="bg-green-600 text-white py-2 px-2 rounded shadow-lg hover:bg-green-700 flex gap-2"
         >
           Download Certificate
+          
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="24px"
