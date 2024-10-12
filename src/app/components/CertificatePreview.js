@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import LoadingBar from "./loader";
-
 const generateCertificateID = () => {
   return Math.random().toString(36).substr(2, 6).toUpperCase();
 };

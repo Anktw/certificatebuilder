@@ -2,8 +2,10 @@
 import React from "react";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+import LoadingBar from "./loader";
 
 const VerifiedCertificatePreview = ({ name, skill, weeks, startDate, certificateID }) => {
+  const [isGenerating, setIsGenerating] = useState(false);
   
   const calculateCompletionDate = (startDate, weeks) => {
     const start = new Date(startDate);
@@ -15,6 +17,7 @@ const VerifiedCertificatePreview = ({ name, skill, weeks, startDate, certificate
   };
 
   const downloadCertificate = async () => {
+    setIsGenerating(true);
     const certificateData = {
       id: certificateID,
       name,
@@ -34,6 +37,7 @@ const VerifiedCertificatePreview = ({ name, skill, weeks, startDate, certificate
       });
       pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
       pdf.save("certificate.pdf");
+      setIsGenerating(false);
     });
   };
 
@@ -116,12 +120,29 @@ const VerifiedCertificatePreview = ({ name, skill, weeks, startDate, certificate
         </div>
       </div>
       <div className="flex justify-center mt-4">
+      {isGenerating ? (
+        <p className="text-center text-lg font-semibold">Generating...
+        <LoadingBar/>
+        </p>
+      ):(
         <button
           onClick={downloadCertificate}
-          className="bg-green-600 text-white py-2 px-6 rounded shadow-lg hover:bg-green-700"
+         
+          className="bg-green-600 text-white py-2 px-2 rounded shadow-lg hover:bg-green-700 flex gap-2"
+
         >
           Download Certificate
-        </button>
+          
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#e8eaed"
+          >
+            <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z" />
+          </svg>
+        </button>)}
       </div>
     </div>
   );
