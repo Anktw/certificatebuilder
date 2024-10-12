@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+import LoadingBar from "./loader";
 
 const generateCertificateID = () => {
   return Math.random().toString(36).substr(2, 6).toUpperCase();
@@ -9,6 +10,7 @@ const generateCertificateID = () => {
 
 const CertificatePreview = ({ name, skill, weeks, startDate }) => {
   const [certificateID, setCertificateID] = useState("");
+  const [isGenerating, setIsGenerating] = useState(false);
 
   useEffect(() => {
     setCertificateID(generateCertificateID());
@@ -37,6 +39,7 @@ const CertificatePreview = ({ name, skill, weeks, startDate }) => {
   };
 
   const downloadCertificate = async () => {
+    setIsGenerating(true);
     const certificateData = {
       id: certificateID,
       name,
@@ -59,6 +62,7 @@ const CertificatePreview = ({ name, skill, weeks, startDate }) => {
       });
       pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
       pdf.save("certificate.pdf");
+      setIsGenerating(false);
     });
   };
 
@@ -142,10 +146,16 @@ const CertificatePreview = ({ name, skill, weeks, startDate }) => {
       </div>
 
       <div className="flex justify-center mt-4">
+      {isGenerating ? (
+        <p className="text-center text-lg font-semibold">Generating...
+        <LoadingBar/>
+        </p>
+      ):(
         <button
           onClick={downloadCertificate}
          
           className="bg-green-600 text-white py-2 px-2 rounded shadow-lg hover:bg-green-700 flex gap-2"
+
         >
           Download Certificate
           
@@ -158,7 +168,7 @@ const CertificatePreview = ({ name, skill, weeks, startDate }) => {
           >
             <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z" />
           </svg>
-        </button>
+        </button>)}
       </div>
     </div>
   );
