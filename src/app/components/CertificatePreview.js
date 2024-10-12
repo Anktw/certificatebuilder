@@ -144,7 +144,7 @@ const CertificatePreview = ({ name, skill, weeks, startDate }) => {
       <div className="flex justify-center mt-4">
         <button
           onClick={downloadCertificate}
-          className="bg-green-600 text-white py-2 px-6 rounded shadow-lg hover:bg-green-700"
+          className="bg-green-600 text-white py-2 px-6 rounded-lg shadow-lg hover:bg-green-700"
         >
           Download Certificate
         </button>
