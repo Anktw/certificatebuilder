@@ -3,6 +3,7 @@ import React from "react";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import LoadingBar from "./loader";
+import { useState } from "react";
 
 const VerifiedCertificatePreview = ({ name, skill, weeks, startDate, certificateID }) => {
   const [isGenerating, setIsGenerating] = useState(false);
