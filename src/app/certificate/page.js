@@ -187,7 +187,7 @@ const CertificatePage = () => {
           </span></button>
       </div>
       <div></div>
-      <div className="mt-5 flex justify-center px-4 mx-4">
+      <div className="mt-5 justify-center px-4 mx-4 flex">
         {showCertificate ? (
           <div className="certificate-preview-container px-4">
             <CertificatePreview
