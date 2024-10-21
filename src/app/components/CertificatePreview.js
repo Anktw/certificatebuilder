@@ -23,6 +23,13 @@ const CertificatePreview = ({ name, skill, weeks, startDate }) => {
     const yyyy = completion.getFullYear();
     return `${dd}-${mm}-${yyyy}`;
   };
+  const formatDate = (date) => {
+    const start = new Date(date);
+    const dd = String(start.getDate()).padStart(2, "0");
+    const mm = String(start.getMonth() + 1).padStart(2, "0");
+    const yyyy = start.getFullYear();
+    return `${dd}-${mm}-${yyyy}`;
+  };
 
   const saveCertificate = async (certificateData) => {
     console.log("Saving Certificate Data:", certificateData);
@@ -125,7 +132,7 @@ const CertificatePreview = ({ name, skill, weeks, startDate }) => {
 
             <div className="text-right">
               <p className="font-sans text-lg">
-                Started on: <strong>{startDate}</strong>
+                Started on: <strong>{formatDate(startDate)}</strong>
               </p>
               <p className="font-sans text-lg">
                 Issued on:{" "}
